@@ -2,7 +2,7 @@
   "type" : "Index",
   "uuid" : "57a35b9a-083c-4a93-a813-fc3ddfe1ff44",
   "name" : "Example Index",
-  "version" : "c24135b6-74c7-443d-a2b3-77e1c8b92891",
+  "version" : "9e6cfa55-3c01-42c7-bee2-4eaa4fddfba1",
   "maxDocsPerShard" : 1000000000,
   "partitionBy" : "MONTH",
   "partitionSize" : 1,
@@ -31,6 +31,25 @@
     "stored" : false,
     "termPositions" : false,
     "caseSensitive" : true
+  }, {
+    "fldName" : "Dense",
+    "fldType" : "DENSE_VECTOR",
+    "analyzerType" : "KEYWORD",
+    "indexed" : true,
+    "stored" : false,
+    "termPositions" : false,
+    "caseSensitive" : false,
+    "denseVectorFieldConfig" : {
+      "modelRef" : {
+        "type" : "OpenAIModel",
+        "uuid" : "7db8cfdf-8d9a-45fc-9e3b-66c9d54a3d80",
+        "name" : "stella-embed"
+      },
+      "vectorSimilarityFunction" : "DOT_PRODUCT",
+      "segmentSize" : 2000,
+      "overlapSize" : 200,
+      "nearestNeighbourCount" : 1
+    }
   }, {
     "fldName" : "Description",
     "fldType" : "TEXT",
